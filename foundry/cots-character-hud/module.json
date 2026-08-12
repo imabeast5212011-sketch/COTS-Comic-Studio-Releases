@@ -1,0 +1,35 @@
+﻿{
+    "id":  "cots-character-hud",
+    "title":  "COTS Character HUD",
+    "description":  "A compact D\u0026D 5e character HUD and SNES-style speaker overlay for Foundry VTT v14.",
+    "authors":  [
+                    {
+                        "name":  "COTS Development"
+                    }
+                ],
+    "version":  "0.1.0",
+    "compatibility":  {
+                          "minimum":  "14",
+                          "verified":  "14"
+                      },
+    "system":  [
+                   "dnd5e"
+               ],
+    "esmodules":  [
+                      "scripts/main.js"
+                  ],
+    "styles":  [
+                   "styles/cots-character-hud.css"
+               ],
+    "languages":  [
+                      {
+                          "lang":  "en",
+                          "name":  "English",
+                          "path":  "lang/en.json"
+                      }
+                  ],
+    "socket":  true,
+    "url":  "https://github.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/tree/main/foundry/cots-character-hud",
+    "manifest":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/module.json",
+    "download":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/cots-character-hud-0.1.0.zip"
+}
