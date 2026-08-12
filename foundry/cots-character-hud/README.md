@@ -2,11 +2,15 @@
 
 COTS Character HUD is a Foundry VTT v14 module for D&D 5e worlds. It adds a compact live player-character HUD, a multi-companion tray, and a two-speaker SNES-style character presentation overlay for table talk in Discord or ordinary non-roll Foundry chat.
 
-## Development Installation
+## Installation
 
-Copy or link the `cots-character-hud` folder into your Foundry user data folder under `Data/modules/cots-character-hud`, restart Foundry, and enable **COTS Character HUD** in your D&D 5e world.
+Install from this manifest URL in **Add-on Modules > Install Module**:
 
-The module manifest intentionally does not include public download, manifest, repository, or release URLs.
+```text
+https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/module.json
+```
+
+For local development, copy or link the `cots-character-hud` folder into your Foundry user data folder under `Data/modules/cots-character-hud`, restart Foundry, and enable **COTS Character HUD** in your D&D 5e world.
 
 ## Player Setup
 
@@ -38,7 +42,9 @@ Use **Voice Activity Threshold** and **Voice Release Delay** to tune false posit
 
 ## Text Chat
 
-When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor. Roll messages are ignored. The message text is not displayed in the overlay.
+When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor after the message is sent. Roll messages are ignored. The message text is not displayed in the overlay.
+
+If the chat message has no explicit Actor speaker, the module falls back to the sender's assigned Foundry character, then the sender's selected COTS HUD main Actor.
 
 The module does not integrate with Discord directly. Auto voice presentation listens only to the browser microphone source the user permits.
 
@@ -46,13 +52,15 @@ The module does not integrate with Discord directly. Auto voice presentation lis
 
 Each client can move and resize the speaker overlay with the overlay move and resize controls. Position and width are stored locally.
 
-Client settings allow customization of the overlay background color, gradient start/end colors, border color, panel opacity, and portrait opacity. Actor accent colors still override the speaker frame color for specific Actors.
+Open **Speaker Overlay Appearance** in module settings to choose the overlay background color, gradient start/end colors, border color, panel opacity, and portrait opacity with native color-wheel controls. These overlay theme settings are client-side, so each user can make their own screen look different.
+
+Actor accent colors are actor-specific and travel with the speaker presentation. If Rose is configured pink, connected clients see Rose with that accent when Rose speaks; your Actor can use a different accent when you speak.
 
 ## GM Speaker Picker
 
 GMs get a small overlay dock with the selected NPC speaker, preview, and stop-all controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
 
-The selected GM speaker is stored in the GM user's flags and remains selected until changed or cleared.
+The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection.
 
 ## Cinematic Actor Settings
 
@@ -70,7 +78,7 @@ If no cinematic portrait is configured, the module uses the Actor portrait. Acce
 
 World settings control whether the player HUD and speaker overlay are enabled, max speakers, default linger duration, player accent permissions, GM-only cinematic portrait restrictions, client linger overrides, and non-roll chat presentation.
 
-Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, linger override, and reduced animation.
+Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, linger override, overlay appearance, GM speaker selection, and reduced animation.
 
 User-specific Actor selections and tray state are stored in User flags. Actor cinematic settings are stored in Actor flags.
 
