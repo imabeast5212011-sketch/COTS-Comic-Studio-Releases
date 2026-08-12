@@ -1,6 +1,6 @@
 # COTS Character HUD
 
-COTS Character HUD is a Foundry VTT v14 module for D&D 5e worlds. It adds a compact live player-character HUD, a multi-companion tray, and a two-speaker SNES-style character presentation overlay for table talk in Discord or ordinary non-roll Foundry chat.
+COTS Character HUD is a Foundry VTT v14 module for D&D 5e worlds. It adds a compact live player-character HUD, a multi-companion tray, and an SNES-style character presentation overlay for table talk in Discord or ordinary non-roll Foundry chat.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Open **Configure Settings > Module Settings > COTS Character HUD > Character HUD
 
 Choose one main Actor. Non-GM users only see Actors they own with OWNER permission. GMs can choose from world Actors. Add any number of companions from owned Actors, or from owned tokens on the current scene when available. Removing a companion only removes it from the tray; it does not delete the Actor or token.
 
-Drag the HUD header to save its client-side screen position. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray.
+Drag the HUD header to save its client-side screen position. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
 
 ## Speaker Controls
 
@@ -30,9 +30,9 @@ The module registers Foundry keybindings without default keys, so you can assign
 
 Holding a presentation key broadcasts a native Foundry module socket message. Other connected clients show the configured Actor portrait and name, with no written dialogue box. Releasing the key stops the speaking state and the portrait lingers briefly before fading.
 
-The overlay supports two simultaneous or recent speakers: first on the left, second on the right. A third speaker replaces the least-recent inactive speaker, or the least-recently-started active speaker if both slots are active.
+The overlay keeps a single remembered participant collection and derives the visible layout from it. Up to two speakers appear in large focus positions. Additional recent participants appear in a compact carousel above the frame. If more than two people are actively speaking, the two most recently activated speakers stay in focus and displaced active speakers remain marked as speaking in the carousel.
 
-Manual presentation can be disabled per client with **Manual Speaker Presentation**.
+Manual presentation can be disabled per client with **Manual Speaker Presentation** or the HUD talk opt-out button.
 
 ## Auto Voice Presentation
 
@@ -42,7 +42,7 @@ Use **Voice Activity Threshold** and **Voice Release Delay** to tune false posit
 
 ## Text Chat
 
-When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor and message text after the message is sent. Roll messages are ignored. Text is escaped before rendering and trimmed to a short dialogue-sized excerpt.
+When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor and message text after the message is sent. Roll messages are ignored. Text is escaped before rendering and trimmed to a short dialogue-sized excerpt. Each user can disable their own chat-triggered presentation from the HUD without disabling chat presentation for everyone else.
 
 If the chat message has no explicit Actor speaker, the module falls back to the sender's assigned Foundry character, then the sender's selected COTS HUD main Actor. For GM-authored plain chat, the GM speaker picker is preferred over the chat/HUD actor selector and is broadcast to connected clients; if no GM speaker is selected, it falls back normally.
 
@@ -58,9 +58,11 @@ Actor accent colors are actor-specific and travel with the speaker presentation.
 
 ## GM Speaker Picker
 
-GMs get a draggable overlay dock with the selected NPC speaker, preview, all-off, and GM-only controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
+GMs get a draggable overlay dock with the selected NPC speaker, preview, persistent display off/on, pin-current, GM-only focus, and clear-inactive controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
 
-The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection. **Turn all off** clears current speaker portraits for connected clients. **Turn off except GM** clears every current speaker except the selected or currently active GM speaker.
+The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection. The power button is a persistent GM-controlled display toggle: turning it off clears active, lingering, and pinned participants and ignores new presentations until a GM turns the speaker display back on. **Turn off except GM** clears every current speaker except the selected or currently active GM speaker.
+
+The picker also shows current participants and their state. GMs can pin the selected NPC, pin or unpin current participants, and clear inactive unpinned entries. Pinned participants remain in the conversation display but do not displace active speakers from focus.
 
 ## Cinematic Actor Settings
 
@@ -68,19 +70,23 @@ Open an Actor sheet and use the **COTS cinematic settings** header control, or o
 
 - Optional cinematic display name
 - Optional cinematic portrait path
+- Optional focus portrait override
+- Optional carousel portrait override
+- Optional short carousel name
+- Portrait focal X/Y percentages
 - Optional accent color
 - Portrait side preference
 - Optional portrait flip
 
-If no cinematic portrait is configured, the module uses the Actor portrait. Accent values are sanitized to hex colors before rendering.
+If no cinematic portrait is configured, the module uses the Actor portrait. Focal position is applied with safe CSS object-position values in the HUD, focus portrait, and carousel portrait. Focus portraits auto-flip when layout places them on the opposite side so they continue facing inward. Accent values are sanitized to hex colors before rendering.
 
 ## Settings
 
-World settings control whether the player HUD and speaker overlay are enabled, max speakers, default linger duration, player accent permissions, GM-only cinematic portrait restrictions, client linger overrides, and non-roll chat presentation.
+World settings control whether the player HUD and speaker overlay are enabled, max focus speakers, maximum remembered conversation participants, default linger duration, player accent permissions, optional player pinning, pinned scene-change survival, GM-only cinematic portrait restrictions, client linger overrides, non-roll chat presentation, and the GM speaker-display off state.
 
-Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, GM dock position, linger override, overlay appearance, GM speaker selection, and reduced animation.
+Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, carousel visibility and scale, GM dock position, linger override, overlay appearance, GM speaker selection, and reduced animation.
 
-User-specific Actor selections and tray state are stored in User flags. Actor cinematic settings are stored in Actor flags.
+User-specific Actor selections, tray state, and chat presentation opt-out are stored in User flags. Actor cinematic settings are stored in Actor flags.
 
 ## Current Limitations
 
