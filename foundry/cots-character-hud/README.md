@@ -12,7 +12,7 @@ https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Relea
 
 For local development, copy or link the `cots-character-hud` folder into your Foundry user data folder under `Data/modules/cots-character-hud`, restart Foundry, and enable **COTS Character HUD** in your D&D 5e world.
 
-Version `0.1.5` uses versioned JS, CSS, template, and language asset paths to force browsers, especially Chrome, to load the current module files after updating.
+Recent releases use versioned JS, CSS, template, and language asset paths to force browsers, especially Chrome, to load the current module files after updating.
 
 ## Player Setup
 
@@ -44,7 +44,7 @@ Use **Voice Activity Threshold** and **Voice Release Delay** to tune false posit
 
 ## Text Chat
 
-When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor and message text after the message is sent. Roll messages are ignored. Text is escaped before rendering and trimmed to a short dialogue-sized excerpt. Each user can disable their own chat-triggered presentation from the HUD without disabling chat presentation for everyone else.
+When **Present Non-Roll Chat** is enabled, ordinary text-box chat messages briefly present the chat speaker's Actor and message text after the message is sent. Roll messages, item cards, feature cards, and other clicked sheet output are ignored. Text is escaped before rendering and trimmed to a short dialogue-sized excerpt. Each user can disable their own chat-triggered presentation from the HUD without disabling chat presentation for everyone else.
 
 If the chat message has no explicit Actor speaker, the module falls back to the sender's assigned Foundry character, then the sender's selected COTS HUD main Actor. For GM-authored plain chat, the GM speaker picker is preferred over the chat/HUD actor selector and is broadcast to connected clients; if no GM speaker is selected, it falls back normally.
 
