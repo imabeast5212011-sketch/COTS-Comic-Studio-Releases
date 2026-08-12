@@ -7,7 +7,7 @@
                         "name":  "COTS Development"
                     }
                 ],
-    "version":  "0.1.1",
+    "version":  "0.1.2",
     "compatibility":  {
                           "minimum":  "14",
                           "verified":  "14"
@@ -31,5 +31,5 @@
     "socket":  true,
     "url":  "https://github.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/tree/main/foundry/cots-character-hud",
     "manifest":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/module.json",
-    "download":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/cots-character-hud-0.1.1.zip"
+    "download":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/cots-character-hud-0.1.2.zip"
 }
