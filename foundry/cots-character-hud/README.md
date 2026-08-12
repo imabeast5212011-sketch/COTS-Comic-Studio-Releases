@@ -36,15 +36,15 @@ Manual presentation can be disabled per client with **Manual Speaker Presentatio
 
 ## Auto Voice Presentation
 
-Enable **Auto Voice Presentation** on a client to ask the browser for microphone permission and present that user's main Actor while local microphone loudness is above the configured threshold. The module does not send, store, transcribe, or analyze speech content; it only broadcasts speaker start/stop state after local loudness detection.
+Enable **Auto Voice Presentation** on a client to ask the browser for microphone permission and present that user's main Actor while local microphone loudness is above the configured threshold. For GMs, auto voice uses the selected GM speaker actor first, so the bottom scene speaker selector can drive NPC voice presentation; it falls back to the GM main HUD actor only when no GM speaker is selected. The module does not send, store, transcribe, or analyze speech content; it only broadcasts speaker start/stop state after local loudness detection.
 
 Use **Voice Activity Threshold** and **Voice Release Delay** to tune false positives. Disable **Auto Voice Presentation** to stop the microphone stream.
 
 ## Text Chat
 
-When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor after the message is sent. Roll messages are ignored. The message text is not displayed in the overlay.
+When **Present Non-Roll Chat** is enabled, ordinary chat messages briefly present the chat speaker's Actor and message text after the message is sent. Roll messages are ignored. Text is escaped before rendering and trimmed to a short dialogue-sized excerpt.
 
-If the chat message has no explicit Actor speaker, the module falls back to the sender's assigned Foundry character, then the sender's selected COTS HUD main Actor.
+If the chat message has no explicit Actor speaker, the module falls back to the sender's assigned Foundry character, then the sender's selected COTS HUD main Actor. For GM-authored plain chat, the GM speaker picker is preferred over the chat/HUD actor selector and is broadcast to connected clients; if no GM speaker is selected, it falls back normally.
 
 The module does not integrate with Discord directly. Auto voice presentation listens only to the browser microphone source the user permits.
 
@@ -58,9 +58,9 @@ Actor accent colors are actor-specific and travel with the speaker presentation.
 
 ## GM Speaker Picker
 
-GMs get a small overlay dock with the selected NPC speaker, preview, and stop-all controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
+GMs get a draggable overlay dock with the selected NPC speaker, preview, all-off, and GM-only controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
 
-The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection.
+The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection. **Turn all off** clears current speaker portraits for connected clients. **Turn off except GM** clears every current speaker except the selected or currently active GM speaker.
 
 ## Cinematic Actor Settings
 
@@ -78,7 +78,7 @@ If no cinematic portrait is configured, the module uses the Actor portrait. Acce
 
 World settings control whether the player HUD and speaker overlay are enabled, max speakers, default linger duration, player accent permissions, GM-only cinematic portrait restrictions, client linger overrides, and non-roll chat presentation.
 
-Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, linger override, overlay appearance, GM speaker selection, and reduced animation.
+Client settings control local HUD visibility, HUD position and scale, companion tray default collapse, speaker overlay visibility and scale, GM dock position, linger override, overlay appearance, GM speaker selection, and reduced animation.
 
 User-specific Actor selections and tray state are stored in User flags. Actor cinematic settings are stored in Actor flags.
 
