@@ -12,6 +12,8 @@ https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Relea
 
 For local development, copy or link the `cots-character-hud` folder into your Foundry user data folder under `Data/modules/cots-character-hud`, restart Foundry, and enable **COTS Character HUD** in your D&D 5e world.
 
+Version `0.1.5` uses versioned JS, CSS, template, and language asset paths to force browsers, especially Chrome, to load the current module files after updating.
+
 ## Player Setup
 
 Open **Configure Settings > Module Settings > COTS Character HUD > Character HUD Configuration** or use the HUD gear button.
