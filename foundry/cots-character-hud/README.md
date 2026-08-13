@@ -18,7 +18,7 @@ Recent releases use versioned JS, CSS, template, and language asset paths to for
 
 Open **Configure Settings > Module Settings > COTS Character HUD > Character HUD Configuration** or use the HUD gear button.
 
-Choose one main Actor. Non-GM users only see Actors they own with OWNER permission. GMs can choose from world Actors. Add any number of companions from owned Actors, or from owned tokens on the current scene when available. Removing a companion only removes it from the tray; it does not delete the Actor or token.
+Choose one main Actor. Non-GM users only see Actors they own with OWNER permission. GMs can choose from world Actors. Add any number of companions from owned Actors, or from controlled tokens on the current scene when available. Scene-token companions are stored by token UUID, so two controlled minions that share the same base Actor can both appear in the tray. Removing a companion only removes it from the tray; it does not delete the Actor or token.
 
 Drag the HUD header to save its client-side screen position. Drag the lower-right resize grip to resize the HUD; this updates the same client-side HUD scale setting used by Foundry's module settings. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
 
@@ -52,15 +52,17 @@ The module does not integrate with Discord directly. Auto voice presentation lis
 
 ## Overlay Layout and Appearance
 
-Each client can move and resize the speaker overlay with the overlay move and resize controls. Position and width are stored locally.
+Each client can move and resize the speaker overlay with the overlay move and resize controls. Position and width are stored locally. If a non-GM hides the local speaker overlay, a small recovery eye button remains so they can show it again. GMs can use the eye button on the GM dock.
 
-Open **Speaker Overlay Appearance** in module settings to choose the overlay background color, gradient start/end colors, border color, panel opacity, and portrait opacity with native color-wheel controls. These overlay theme settings are client-side, so each user can make their own screen look different.
+Open **HUD and Speaker Appearance** in module settings to choose HUD and overlay background colors, gradient start/end colors, border colors, text color for the HUD, panel opacity, and portrait opacity with native color-wheel controls. These theme settings are client-side, so each user can make their own screen look different.
+
+Enable **Show Token Speech Bubbles** to display a small animated three-dot bubble above an on-screen token while that Actor is actively speaking.
 
 Actor accent colors are actor-specific and travel with the speaker presentation. If Rose is configured pink, connected clients see Rose with that accent when Rose speaks; your Actor can use a different accent when you speak.
 
 ## GM Speaker Picker
 
-GMs get a draggable overlay dock with the selected NPC speaker, local overlay show/hide, preview, persistent display off/on, pin-current, GM-only focus, clear-inactive, and reset-position controls. The GM dock remains visible as a recovery/control shell when the GM locally hides the speaker overlay. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
+GMs get a draggable black-and-red overlay dock with the selected NPC speaker, local overlay show/hide, preview, persistent display off/on, pin-current, GM-only focus, clear-inactive, and reset-position controls. The GM dock remains visible as a recovery/control shell when the GM locally hides the speaker overlay. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, including quick All, PC, and NPC filters, so it does not search every Actor document on each keypress.
 
 The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection. The power button is a persistent GM-controlled display toggle: turning it off clears active, lingering, and pinned participants and ignores new presentations until a GM turns the speaker display back on. **Turn off except GM** clears every current speaker except the selected or currently active GM speaker.
 
