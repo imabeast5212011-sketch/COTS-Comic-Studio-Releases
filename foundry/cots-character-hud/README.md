@@ -20,7 +20,7 @@ Open **Configure Settings > Module Settings > COTS Character HUD > Character HUD
 
 Choose one main Actor. Non-GM users only see Actors they own with OWNER permission. GMs can choose from world Actors. Add any number of companions from owned Actors, or from controlled tokens on the current scene when available. Scene-token companions are stored by token UUID, so two controlled minions that share the same base Actor can both appear in the tray. Removing a companion only removes it from the tray; it does not delete the Actor or token.
 
-Drag the HUD header to save its client-side screen position. Drag the lower-right resize grip to resize the HUD window width; the module keeps portraits, bars, and the companion tray fitted inside that saved size. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
+Drag the HUD header to save its client-side screen position. Drag the lower-right resize grip to resize the HUD window width and height; the module keeps portraits, bars, and the companion tray fitted inside that saved size. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
 
 ## Speaker Controls
 
@@ -56,7 +56,7 @@ The module does not integrate with Discord directly. Auto voice presentation lis
 
 Each client can move and resize the speaker overlay with the overlay move and resize controls. Position and width are stored locally. If a non-GM hides the local speaker overlay, a small recovery eye button remains so they can show it again. GMs can use the eye button on the GM dock.
 
-Open **HUD and Chat Bubble Appearance** in module settings to choose Character HUD and chat bubble background colors, gradient start/end colors, border colors, text color for the HUD, panel opacity, and portrait opacity with native color-wheel controls. The window shows separate live examples for the HUD and the chat bubble/speaker overlay so it is clear which controls affect which UI. These theme settings are client-side, so each user can make their own screen look different.
+Open **HUD and Chat Bubble Appearance** in module settings to choose Character HUD and chat bubble background colors, gradient start/end colors, border colors, text color for the HUD, panel opacity, and portrait opacity with native color-wheel controls. The window shows separate live examples for the HUD and the chat bubble/speaker overlay, and it temporarily previews changes on the live HUD and speaker overlay before you save. These theme settings are client-side, so each user can make their own screen look different.
 
 Enable **Show Token Speech Bubbles** to display a small animated three-dot bubble above an on-screen token while that Actor is actively speaking.
 
@@ -90,7 +90,7 @@ If no cinematic portrait is configured, the module uses the Actor portrait. Foca
 
 World settings control whether the player HUD and speaker overlay are enabled, max focus speakers, maximum remembered conversation participants, default linger duration, player accent permissions, optional player pinning, pinned scene-change survival, GM-only cinematic portrait restrictions, client linger overrides, non-roll chat presentation, and the GM speaker-display off state.
 
-Client settings control local HUD visibility, HUD position, width, and scale, companion tray default collapse, speaker overlay visibility and scale, carousel visibility and scale, GM dock position, linger override, HUD/chat-bubble appearance, voice input device, GM speaker selection, and reduced animation.
+Client settings control local HUD visibility, HUD position, width, height, and scale, companion tray default collapse, speaker overlay visibility and scale, carousel visibility and scale, GM dock position, linger override, HUD/chat-bubble appearance, voice input device, GM speaker selection, and reduced animation.
 
 User-specific Actor selections, tray state, and chat presentation opt-out are stored in User flags. Actor cinematic settings are stored in Actor flags.
 

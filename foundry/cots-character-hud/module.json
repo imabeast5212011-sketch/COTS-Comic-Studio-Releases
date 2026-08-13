@@ -7,7 +7,7 @@
                         "name":  "COTS Development"
                     }
                 ],
-    "version":  "0.1.9",
+    "version":  "0.1.10",
     "compatibility":  {
                           "minimum":  "14",
                           "verified":  "14"
@@ -16,20 +16,20 @@
                    "dnd5e"
                ],
     "esmodules":  [
-                      "scripts/v019/main.js"
+                      "scripts/v0110/main.js"
                   ],
     "styles":  [
-                   "styles/cots-character-hud-0.1.9.css"
+                   "styles/cots-character-hud-0.1.10.css"
                ],
     "languages":  [
                       {
                           "lang":  "en",
                           "name":  "English",
-                          "path":  "lang/en-0.1.9.json"
+                          "path":  "lang/en-0.1.10.json"
                       }
                   ],
     "socket":  true,
     "url":  "https://github.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/tree/main/foundry/cots-character-hud",
     "manifest":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/module.json",
-    "download":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/cots-character-hud-0.1.9.zip"
+    "download":  "https://raw.githubusercontent.com/imabeast5212011-sketch/COTS-Comic-Studio-Releases/main/foundry/cots-character-hud/cots-character-hud-0.1.10.zip"
 }
