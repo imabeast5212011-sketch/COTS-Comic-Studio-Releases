@@ -20,7 +20,7 @@ Open **Configure Settings > Module Settings > COTS Character HUD > Character HUD
 
 Choose one main Actor. Non-GM users only see Actors they own with OWNER permission. GMs can choose from world Actors. Add any number of companions from owned Actors, or from owned tokens on the current scene when available. Removing a companion only removes it from the tray; it does not delete the Actor or token.
 
-Drag the HUD header to save its client-side screen position. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
+Drag the HUD header to save its client-side screen position. Drag the lower-right resize grip to resize the HUD; this updates the same client-side HUD scale setting used by Foundry's module settings. Use the header chevron to collapse the HUD and the companion chevron to collapse the tray. The HUD header includes local opt-out buttons for manual talk presentation and your own chat-triggered presentation.
 
 ## Speaker Controls
 
@@ -60,7 +60,7 @@ Actor accent colors are actor-specific and travel with the speaker presentation.
 
 ## GM Speaker Picker
 
-GMs get a draggable overlay dock with the selected NPC speaker, preview, persistent display off/on, pin-current, GM-only focus, and clear-inactive controls. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
+GMs get a draggable overlay dock with the selected NPC speaker, local overlay show/hide, preview, persistent display off/on, pin-current, GM-only focus, clear-inactive, and reset-position controls. The GM dock remains visible as a recovery/control shell when the GM locally hides the speaker overlay. Open the picker from the dock or from module settings. The picker builds an Actor index once and filters that local index as you type, so it does not search every Actor document on each keypress.
 
 The selected GM speaker is stored in a separate GM-only client setting and remains selected until changed or cleared. It is separate from the GM user's personal HUD actor selection. The power button is a persistent GM-controlled display toggle: turning it off clears active, lingering, and pinned participants and ignores new presentations until a GM turns the speaker display back on. **Turn off except GM** clears every current speaker except the selected or currently active GM speaker.
 
@@ -103,6 +103,7 @@ User-specific Actor selections, tray state, and chat presentation opt-out are st
 - If the HUD is empty, confirm your user owns the selected Actor and that the module is enabled in a D&D 5e world.
 - If token selection or panning does nothing, make sure the Actor has an active token on the currently viewed scene.
 - If the overlay is hidden, re-enable **Speaker Overlay Enabled** in client module settings.
+- If the GM speaker dock is off-screen or hidden, open **GM Speaker Picker** from module settings and use **Reset GM dock position**. After v0.1.7, GMs can also use the dock's eye button to show the local overlay again.
 - If NPC portraits do not appear for players, configure a cinematic portrait path on the Actor so the GM socket payload includes a display-safe portrait.
 
 ## Tested Versions
